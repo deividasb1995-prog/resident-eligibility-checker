@@ -44,3 +44,10 @@ Feature: Resident Support eligibility checking
     And the applicant has a household income of 20000
     When the eligibility check is run
     Then the applicant should be not eligible
+
+  Scenario: Applicant is not a resident of the local authority area
+    Given an applicant aged 35
+    And the applicant is not a resident of the local authority area
+    And the applicant has a household income of 20000
+    When the eligibility check is run
+    Then the applicant should be not eligible
