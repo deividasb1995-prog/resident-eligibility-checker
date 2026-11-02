@@ -37,3 +37,10 @@ Feature: Resident Support eligibility checking
     When the eligibility check is run
     Then the service should report an input error
     And the error message should mention "negative"
+
+  Scenario: Applicant is below the minimum age
+    Given an applicant aged 16
+    And the applicant is a resident of the local authority area
+    And the applicant has a household income of 20000
+    When the eligibility check is run
+    Then the applicant should be not eligible
